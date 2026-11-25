@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encuesta: Preocupación y Desconocimiento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf2f2;
+      color: #2b1111;
+      margin: 0;
+      padding: 24px;
+    }
+    .contenedor {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(153, 27, 27, 0.12);
+      border-top: 5px solid #991b1b;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #991b1b;
+    }
+    .subtitulo {
+      color: #6b3b3b;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .pregunta {
+      border-bottom: 1px solid #fecaca;
+      padding: 16px 0;
+    }
+    .pregunta p {
+      font-weight: bold;
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+      color: #450a0a;
+    }
+    .opcion {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    .opcion input[type="radio"] {
+      accent-color: #b91c1c;
+    }
+    button {
+      margin-top: 22px;
+      padding: 12px 22px;
+      font-size: 1rem;
+      background-color: #991b1b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #dc2626;
+    }
+    #resultado {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fef2f2;
+      border-left: 5px solid #991b1b;
+      display: none;
+    }
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .tarjeta {
+      background: #ffffff;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .tarjeta h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.05rem;
+      color: #991b1b;
+    }
+    .alerta {
+      color: #7f1d1d;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Encuesta: Registro de Líneas Telefónicas en México</h1>
+    <p class="subtitulo">
+      Al enviar, el programa calculará por separado tu nivel de <strong>preocupación</strong> y tu nivel de <strong>desconocimiento</strong>.
+    </p>
+
+    <form id="encuestaForm">
+      <!-- 1 -->
+      <div class="pregunta">
+        <p>1. Phishing: Consiste en que un ciberdelincuente se hace pasar por una persona, empresa o institución legítima (como un banco, una red social o una entidad pública) para engañar al usuario y hacer que «muerda el anzuelo». ¿Estás consciente de lo que implica haber registrado tu línea? </p>
+        <label class="opcion"><input type="radio" name="p1" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p1" value="NO" /> No</label>
+      </div>
+
+      <!-- 2 -->
+      <div class="pregunta">
+        <p>2. ¿Conoces los beneficios que obtuviste al registrar tu línea? </p>
+        <label class="opcion"><input type="radio" name="p2" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p2" value="NO" /> No</label>
+        <label class="opcion"><input type="radio" name="p2" value="DUDOSO" /> No estoy seguro/a</label>
+      </div>
+
+      <!-- 3 -->
+      <div class="pregunta">
+        <p>3. ¿Conoces los riesgos que puedes llegar a notar después de haber registrado tu línea? </p>
+        <label class="opcion"><input type="radio" name="p3" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p3" value="NO" /> No</label>
+      </div>
+
+      <!-- 4 -->
+      <div class="pregunta">
+        <p>4. ¿Sabes cómo puedes protegerte para evitar ser víctima de Phishing? </p>
+        <label class="opcion"><input type="radio" name="p4" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p4" value="NO" /> No</label>
+      </div>
+
+      <!-- 5 -->
+      <div class="pregunta">
+        <p>5. ¿Tienes dudas sobre cómo usarán tu información después de registrarte? </p>
+        <label class="opcion"><input type="radio" name="p5" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p5" value="NO" /> No</label>
+      </div>
+
+      <!-- 6 -->
+      <div class="pregunta">
+        <p>6. ¿Qué duda tienes principalmente? </p>
+        <label class="opcion"><input type="radio" name="p6" value="VIGILANCIA" required /> Si seré vigilado</label>
+        <label class="opcion"><input type="radio" name="p6" value="ESTAFAS" /> Si mi información puede usarse para estafas o incriminar</label>
+        <label class="opcion"><input type="radio" name="p6" value="BANCOS" /> Qué pasará con mis cuentas bancarias y mi dinero</label>
+      </div>
+
+      <!-- 7 -->
+      <div class="pregunta">
+        <p>7. ¿Te parece clara la información sobre la seguridad de tu información posterior al registro de tu línea? *</p>
+        <label class="opcion"><input type="radio" name="p7" value="MUY_CLARA" required /> Muy clara</label>
+        <label class="opcion"><input type="radio" name="p7" value="ALGO_CLARA" /> Algo clara</label>
+        <label class="opcion"><input type="radio" name="p7" value="POCA_CLARA" /> Poco clara</label>
+        <label class="opcion"><input type="radio" name="p7" value="NADA_CLARA" /> Nada clara</label>
+      </div>
+
+      <!-- 8 -->
+      <div class="pregunta">
+        <p>8. ¿Confías en que tus datos estarán seguros al registrar tu línea? </p>
+        <label class="opcion"><input type="radio" name="p8" value="MUCHO" required /> Mucho</label>
+        <label class="opcion"><input type="radio" name="p8" value="POCO" /> Poco</label>
+        <label class="opcion"><input type="radio" name="p8" value="NADA" /> Nada</label>
+      </div>
+
+      <!-- 9 -->
+      <div class="pregunta">
+        <p>9. ¿Te preocupa que tus datos personales sean usados para otros fines? </p>
+        <label class="opcion"><input type="radio" name="p9" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p9" value="NO" /> No</label>
+      </div>
+
+      <!-- 10 -->
+      <div class="pregunta">
+        <p>10. ¿Crees que el registro ayudará a reducir delitos como las extorsiones? </p>
+        <label class="opcion"><input type="radio" name="p10" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p10" value="NO" /> No</label>
+      </div>
+
+      <!-- 11 -->
+      <div class="pregunta">
+        <p>11. ¿Te preocupa que te roben la identidad al dar tu CURP? </p>
+        <label class="opcion"><input type="radio" name="p11" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p11" value="NO" /> No</label>
+      </div>
+
+      <!-- 12 -->
+      <div class="pregunta">
+        <p>12. ¿Has notado movimientos fuera de lo normal en tus cuentas y datos bancarios? </p>
+        <label class="opcion"><input type="radio" name="p12" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p12" value="NO" /> No</label>
+      </div>
+
+      <!-- 13 -->
+      <div class="pregunta">
+        <p>13. ¿Has recibido llamadas o mensajes de números desconocidos? </p>
+        <label class="opcion"><input type="radio" name="p13" value="FRECUENTE" required /> Sí, frecuentemente</label>
+        <label class="opcion"><input type="radio" name="p13" value="RARAMENTE" /> Raramente</label>
+        <label class="opcion"><input type="radio" name="p13" value="NO" /> No</label>
+      </div>
+
+      <!-- 14 -->
+      <div class="pregunta">
+        <p>14. ¿Sabes cómo actuar en caso de robo de tu información? </p>
+        <label class="opcion"><input type="radio" name="p14" value="SI" required /> Sí</label>
+        <label class="opcion"><input type="radio" name="p14" value="NO" /> No</label>
+        <label class="opcion"><input type="radio" name="p14" value="MAS_O_MENOS" /> Más o menos</label>
+      </div>
+
+      <button type="submit">Calcular preocupación y desconocimiento</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
